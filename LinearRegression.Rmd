@@ -1,0 +1,35 @@
+---
+title: "Linear Regression"
+author: "Ojo Ilesanmi"
+date: "November 15, 2019"
+output: pdf_document
+---
+
+```{r}
+i_ris<-datasets::iris
+ggplot(i_ris, aes(y=Sepal.Length, x=Petal.Length)) + geom_point(colour= "blue") + labs(title = "Relationship between Petal Length and Sepal Length", y="Sepal Length", x= "Petal Length")
+```
+
+```{r}
+fit<-lm(Sepal.Length~Petal.Length, data= i_ris)
+summary(fit)
+hist(fit$residuals)
+
+```
+
+```{r}
+fix(i_ris)
+```
+
+```{r}
+house<- read.csv("C:/Users/USER/Desktop/Flashdrive/Session2/data/house.csv", header = T)
+```
+
+```{r}
+str(house)
+```
+
+```{r}
+fit1<lm(Price~Bedrooms+Bathrooms+SQFT+Status, data=house)
+summary(fit1)
+```
